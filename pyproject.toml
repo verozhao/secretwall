@@ -30,6 +30,10 @@ classifiers = [
     "Topic :: Software Development",
 ]
 
+[project.urls]
+Homepage = "https://github.com/verozhao/secretwall"
+Issues = "https://github.com/verozhao/secretwall/issues"
+
 [project.scripts]
 secretwall = "secretwall.cli:main"
 
@@ -38,6 +42,9 @@ path = "src/secretwall/hook.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/secretwall"]
+
+[tool.hatch.build.targets.sdist]
+exclude = ["/docs", "/.github"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
