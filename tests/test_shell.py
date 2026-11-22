@@ -59,7 +59,8 @@ BLOCK = [
     "cat ~/.ssh/id_rsa",
     "cat ~/.aws/credentials",
     "cat $HOME/.aws/credentials",
-    "cat /proc/self/environ",
+    pytest.param("cat /proc/self/environ", marks=pytest.mark.skipif(
+        not os.path.exists("/proc/self/environ"), reason="only Linux has /proc")),
     # whole-folder reads
     "grep -r API_KEY .",
     "grep -rn KEY",
